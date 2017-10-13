@@ -1,0 +1,12 @@
+rootProject.name = 'BddSpock'
+
+[
+ 'Simple': '01',
+ 'Spring': '02',
+ 'Geb'   : '03',
+ 'Jee'   : '04'
+].each {
+  include it.key
+  project(":${it.key}".toString()).projectDir = new File("${it.value}${it.key}".toString())
+}
+

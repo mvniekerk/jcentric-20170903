@@ -1,0 +1,37 @@
+//From https://github.com/arquillian/arquillian-testrunner-spock.git
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'org.jboss.arquillian.spock'
+version = '1.0.0.Final-SNAPSHOT'
+
+description = """Arquillian TestRunner Spock Example: Groovy 2.x"""
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    testCompile group: 'org.jboss.arquillian.spock', name: 'arquillian-spock-container', version:'1.0.0.Final-SNAPSHOT'
+    testCompile group: 'org.spockframework', name: 'spock-core', version:'0.7-groovy-2.0'
+    testCompile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.1.8'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.jboss.arquillian.protocol', name: 'arquillian-protocol-servlet', version:'1.1.11.Final'
+    testCompile group: 'org.jboss.as', name: 'jboss-as-arquillian-container-managed', version:'7.1.1.Final'
+    compileOnly group: 'javax', name: 'javaee-api', version:'7.0'
+}
+//packaging tests
+task packageTests(type: Jar) {
+  from sourceSets.test.output
+  classifier = 'tests'
+}
+artifacts.archives packageTests

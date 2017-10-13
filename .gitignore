@@ -1,0 +1,22 @@
+# https://git-scm.com/docs/gitignore
+# https://help.github.com/articles/ignoring-files
+# Example .gitignore files: https://github.com/github/gitignore
+.apt_generated/
+target/
+.settings/
+.project
+.classpath
+.factorypath
+.idea/
+.gradle/
+*/*.iml
+*.iml
+bin
+*/build/
+build/
+classes/
+/new-business-capture-web/nbproject/private/
+/.vscode/
+.vscode/
+out/
+tmp/
